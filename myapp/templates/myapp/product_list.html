@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    list product
+{% endblock %}
+
+
+
+{% block body %}
+    <ul>
+        {% for product in products %}
+            <li>
+                <a href="{{ product.get_absolute_url }}">
+                    {{ product.title }} and / price : {{ product.price }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div>
+        <p>
+            number of product : {{total_number_of_products}}
+        </p>
+        <p>
+            average ratings of product : {{average_ratings.rating__avg}}
+        </p>
+        <p>
+            max ratings of product : {{average_ratings.rating__max}}
+        </p>
+        <p>
+            min ratings of product : {{average_ratings.rating__min}}
+        </p>
+        <p>
+            max price of product : {{average_ratings.price__max}}
+        </p>
+        <p>
+            min ratings of product : {{average_ratings.price__min}}
+        </p>
+    </div>
+
+{% endblock %}
+
+
+
